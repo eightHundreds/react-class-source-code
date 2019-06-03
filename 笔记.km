@@ -1,0 +1,615 @@
+{
+    "root": {
+        "data": {
+            "id": "bud3wz0fuqg0",
+            "created": 1558854822100,
+            "text": "中心主题"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "bud3x0dovps0",
+                    "created": 1558854825078,
+                    "text": "React"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "bud3xclycx40",
+                            "created": 1558854851699,
+                            "text": "createReactElement"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "bud3xfkldqo0",
+                                    "created": 1558854858147,
+                                    "text": "返回一个对象",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "bud3xnickrc0",
+                                            "created": 1558854875426,
+                                            "text": "$$typeof: REACT_ELEMENT_TYPE,"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "bud3yaj3m2g0",
+                                                    "created": 1558854925537,
+                                                    "text": "指示是什么类型的"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud3xnie5ag0",
+                                            "created": 1558854875428,
+                                            "text": "type: type,"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud3xnidyo80",
+                                            "created": 1558854875428,
+                                            "text": "key: key,"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud3xnidvhc0",
+                                            "created": 1558854875428,
+                                            "text": "ref: ref,"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud3xnidtko0",
+                                            "created": 1558854875428,
+                                            "text": "props: props,"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud3xnie90w0",
+                                            "created": 1558854875428,
+                                            "text": "_owner: owner,"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "bud48c98c3c0",
+                            "created": 1558855712936,
+                            "text": "ReactElement"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "bud4c2elkyg0",
+                            "created": 1558856004949,
+                            "text": "ReactBaseClasses"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "bud4klx25iw0",
+                                    "created": 1558856674337,
+                                    "text": "Component"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "bud4m760jow0",
+                                            "created": 1558856798955,
+                                            "text": "参数"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "bud4m8m4oo00",
+                                                    "created": 1558856802107,
+                                                    "text": "props"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "bud4m9oqr4o0",
+                                                    "created": 1558856804441,
+                                                    "text": "content"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "bud4majvf6o0",
+                                                    "created": 1558856806324,
+                                                    "text": "updater"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "bud4koz4f9c0",
+                                    "created": 1558856680992,
+                                    "text": "PureComponent",
+                                    "note": "相比Component,PureComponent增加了一个标识isPureReactComponent\n\n在更新时发现是PureComponent\n则增加一步\n```\n!shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState)\n```"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "bud5ouh2ghk0",
+                            "created": 1558859827528,
+                            "text": "forwarRef"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "bud5p5sf8tc0",
+                                    "created": 1558859852159,
+                                    "text": "返回"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "bud5p85da4w0",
+                                            "created": 1558859857296,
+                                            "text": "{"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud5p8x1ucw0",
+                                            "created": 1558859858969,
+                                            "text": "$$typeof: REACT_FORWARD_REF_TYPE"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "budn83pwbds0",
+                                                    "created": 1558909295440,
+                                                    "text": "一个Symbol"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud5pfvk2ow0",
+                                            "created": 1558859874117,
+                                            "text": "render"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud5phzilfc0",
+                                            "created": 1558859878710,
+                                            "text": "}"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "bud8n4ab55s0",
+                            "created": 1558868155489,
+                            "text": "ReactContext"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "bud8rhvaz7k0",
+                                    "created": 1558868498513,
+                                    "text": "createContext",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "bud8nq5x0600",
+                                            "created": 1558868203112,
+                                            "text": "返回Context"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "bud5p8x1ucw0",
+                                                    "created": 1558859858969,
+                                                    "text": "$$typeof: REACT_CONTEXT_TYPE"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "bud8qv5obqo0",
+                                                    "created": 1558868449074,
+                                                    "text": "_currentValue"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "bud8qxmpulc0",
+                                                    "created": 1558868454458,
+                                                    "text": "Consumer"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "bud8rb2sukw0",
+                                                            "created": 1558868483729,
+                                                            "text": "等于context自身"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "bud8nrcmvhc0",
+                                                    "created": 1558868205695,
+                                                    "text": "Provider"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "bud8r2rwlc00",
+                                                            "created": 1558868465656,
+                                                            "text": "$$typeof:REACT_PROVIDER_TYPE"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "bud8r87qfls0",
+                                                            "created": 1558868477497,
+                                                            "text": "_context"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "budnhc880r40",
+                            "created": 1558910019240,
+                            "text": "lazy"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "budnhf35a000",
+                                    "created": 1558910025464,
+                                    "text": "一个方法"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "budnhgliu080",
+                                            "created": 1558910028752,
+                                            "text": "返回",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "budnhcexepc0",
+                                                    "created": 1558910019646,
+                                                    "text": "{"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "budnhcexzeo0",
+                                                    "created": 1558910019647,
+                                                    "text": "$$typeof: REACT_LAZY_TYPE,"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "budni0qqgzk0",
+                                                            "created": 1558910072602,
+                                                            "text": "一个Symbol"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "budnhcexxy00",
+                                                    "created": 1558910019647,
+                                                    "text": "_ctor: ctor,"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "budnhrp24nk0",
+                                                            "created": 1558910052910,
+                                                            "text": "Thenable"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "budnhceyf000",
+                                                    "created": 1558910019647,
+                                                    "text": "_status: -1,"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "budni7vf56w0",
+                                                            "created": 1558910088123,
+                                                            "text": "记录ctor的状态"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "budnhceydmo0",
+                                                    "created": 1558910019647,
+                                                    "text": "_result: null,"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "budnifamgxk0",
+                                                            "created": 1558910104280,
+                                                            "text": "ctor resolve返回的数据"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "budnhceyqqo0",
+                                                    "created": 1558910019648,
+                                                    "text": "  }"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "bud48f5cbk80",
+                            "created": 1558855719231,
+                            "text": "暴露的Api",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "bud48iqt1080",
+                                    "created": 1558855727059,
+                                    "text": "Children(处理props.children的方法)",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "bud48iqt3qg0",
+                                            "created": 1558855727059,
+                                            "text": "map,"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud48iqsxc80",
+                                            "created": 1558855727059,
+                                            "text": "forEach,"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud48iqta6o0",
+                                            "created": 1558855727059,
+                                            "text": "count,"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud48iqt31c0",
+                                            "created": 1558855727059,
+                                            "text": "toArray,"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bud48iqt5fc0",
+                                            "created": 1558855727059,
+                                            "text": "only,"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqtkyo0",
+                                    "created": 1558855727060,
+                                    "text": "  createRef,",
+                                    "note": "\n简单用法\n```\nconstructor(){\n\tthis.objRef=React.createRef()\n\t// this.objRef.current //组件实例\n}\nrender(){\n\treturn <Something ref={this.objRef}/>\n}\n```"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqtxvc0",
+                                    "created": 1558855727060,
+                                    "text": "  Component,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqtsxk0",
+                                    "created": 1558855727060,
+                                    "text": "  PureComponent,",
+                                    "note": "相比Component,添加了一个标识\n\n在检查更新时,根据标识,多了一步\n!shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState)\n"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqtep40",
+                                    "created": 1558855727060,
+                                    "text": "  createContext,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqte7k0",
+                                    "created": 1558855727060,
+                                    "text": "  forwardRef,",
+                                    "note": "用法\n```\n// 高阶函数 \n const MyHOC = (WrappedComponent) => {\n  class NewComponent extends React.Component{\n\trender (){\n       const {forwardRef,...rest} = this.props\n    \treturn <WrappedComponent  ref={forwardRef} {...rest}/>\n    }\n }\n return React.forwardRef((props,ref)=>(<NewComponent {...props} forwardRef={ref} />))\n}\n```"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "budngghvsw00",
+                                    "created": 1558909950167,
+                                    "text": "lazy"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqtea00",
+                                    "created": 1558855727060,
+                                    "text": "  Fragment: REACT_FRAGMENT_TYPE,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqujbc0",
+                                    "created": 1558855727061,
+                                    "text": "  StrictMode: REACT_STRICT_MODE_TYPE,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "budne3ej5rk0",
+                                    "created": 1558909764938,
+                                    "text": "Suspense:REACT_SUSPENSE_TYPE"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqu9i80",
+                                    "created": 1558855727061,
+                                    "text": "  unstable_AsyncMode: REACT_ASYNC_MODE_TYPE,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqufns0",
+                                    "created": 1558855727061,
+                                    "text": "  unstable_Profiler: REACT_PROFILER_TYPE,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqu0jk0",
+                                    "created": 1558855727061,
+                                    "text": "  createElement: __DEV__ ? createElementWithValidation : createElement,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqu5a00",
+                                    "created": 1558855727061,
+                                    "text": "  cloneElement: __DEV__ ? cloneElementWithValidation : cloneElement,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqu5s00",
+                                    "created": 1558855727061,
+                                    "text": "  createFactory: __DEV__ ? createFactoryWithValidation : createFactory,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iqu5hs0",
+                                    "created": 1558855727061,
+                                    "text": "  isValidElement: isValidElement,"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bud48iquikg0",
+                                    "created": 1558855727061,
+                                    "text": "  version: ReactVersion,"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue-compat",
+    "version": "1.4.43"
+}

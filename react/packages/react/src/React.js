@@ -67,7 +67,7 @@ const React = {
   __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals,
 };
 
-if (enableStableConcurrentModeAPIs) {
+if (enableStableConcurrentModeAPIs) { // QQQ 原理? 为什么是Symbol
   React.ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
   React.Profiler = REACT_PROFILER_TYPE;
 } else {

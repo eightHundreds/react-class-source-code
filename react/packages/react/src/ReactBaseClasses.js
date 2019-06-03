@@ -121,7 +121,7 @@ if (__DEV__) {
     }
   }
 }
-
+// 组合寄生式继承
 function ComponentDummy() {}
 ComponentDummy.prototype = Component.prototype;
 
@@ -138,7 +138,7 @@ function PureComponent(props, context, updater) {
 
 const pureComponentPrototype = (PureComponent.prototype = new ComponentDummy());
 pureComponentPrototype.constructor = PureComponent;
-// Avoid an extra prototype jump for these methods.
+// Avoid an extra prototype jump for these methods. 原型链查找少走一层
 Object.assign(pureComponentPrototype, Component.prototype);
 pureComponentPrototype.isPureReactComponent = true;
 

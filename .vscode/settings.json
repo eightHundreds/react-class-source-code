@@ -1,0 +1,16 @@
+{
+    "bookmarks.saveBookmarksInProject": true,
+    "todo-tree.customHighlight": {
+        "QQQ": {
+            "foreground": "black",
+            "icon": "question",
+            "type": "text",
+            "background": "yellow",
+            "opacity": 50,
+            "iconColour": "yellow"
+        }
+    },
+    "todo-tree.tags": [
+        "QQQ"
+    ]
+}

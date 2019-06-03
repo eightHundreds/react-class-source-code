@@ -241,13 +241,14 @@ export function createElement(type, config, children) {
       }
     }
   }
+  // TODO 123
   return ReactElement(
     type,
     key,
     ref,
     self,
     source,
-    ReactCurrentOwner.current,
+    ReactCurrentOwner.current, // QQQ 这个什么意思
     props,
   );
 }
