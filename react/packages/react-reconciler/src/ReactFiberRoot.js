@@ -111,7 +111,7 @@ export function createFiberRoot(
   let root;
   if (enableSchedulerTracing) {
     root = ({
-      current: uninitializedFiber,
+      current: uninitializedFiber, // 当前应用对应的Fiber对象
       containerInfo: containerInfo,
       pendingChildren: null,
 

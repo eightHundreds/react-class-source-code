@@ -3,7 +3,8 @@
         "data": {
             "id": "bud3wz0fuqg0",
             "created": 1558854822100,
-            "text": "中心主题"
+            "text": "中心主题",
+            "note": "https://react.jokcy.me/"
         },
         "children": [
             {
@@ -11,7 +12,7 @@
                     "id": "bud3x0dovps0",
                     "created": 1558854825078,
                     "text": "React",
-                    "expandState": "expand"
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -614,7 +615,221 @@
                     "created": 1560314753227,
                     "text": "ReactDom"
                 },
-                "children": []
+                "children": [
+                    {
+                        "data": {
+                            "id": "burhjy4odnc0",
+                            "created": 1560315136377,
+                            "text": "render"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "buri2yd7gfs0",
+                                    "created": 1560316625812,
+                                    "text": "legacyRenderSubtreeIntoContainer",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "burhkjfo5gg0",
+                                            "created": 1560315182755,
+                                            "text": "legacyCreateRootFromDOMContainer\n创建根容器,返回ReactRoot\n其实就是FiberRoot",
+                                            "note": "- 整个应用的起点\n- 包含应用挂载的目标节点\n- 记录整个应用更新过程中的各种信息"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "burhpxi0uog0",
+                                                    "created": 1560315605193,
+                                                    "text": "是否复用当前DOM"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "burhq8tjqdk0",
+                                                            "created": 1560315629834,
+                                                            "text": "是(通常用于服务端渲染)",
+                                                            "note": "根据forceHydrate或容器是否有子节点(同时子节点还要有data-reactroot)决定是否复用Dom\n\n",
+                                                            "font-weight": "bold"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "burhqpwr69k0",
+                                                            "created": 1560315667033,
+                                                            "text": "否"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "burhqqpme080",
+                                                                    "created": 1560315668779,
+                                                                    "text": "清空容器内容"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "burhxwxs1ag0",
+                                                    "created": 1560316230882,
+                                                    "text": "new ReactRoot"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buri0y8ajds0",
+                                                            "created": 1560316468787,
+                                                            "text": "DOMRenderer.createContainer->createFiberRoot"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "buri308v84o0",
+                                            "created": 1560316629903,
+                                            "text": "unbatchedUpdates(()=>ReactRoot.render)"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "buri3oshups0",
+                                                    "created": 1560316683333,
+                                                    "text": "DomRenderer.updateContainer"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buri3zoqz7k0",
+                                                            "created": 1560316707051,
+                                                            "text": "expirationTime = computeExpirationForFiber(currentTime, current)",
+                                                            "note": "这次更新的 超时时间"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "buri5yp4o7k0",
+                                                            "created": 1560316861626,
+                                                            "text": "updateContainerAtExpirationTime"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "buri6smkhcw0",
+                                                                    "created": 1560316926774,
+                                                                    "text": "scheduleRootUpdate"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "buri8irebls0",
+                                                                            "created": 1560317062027,
+                                                                            "text": "update=createUpdate",
+                                                                            "note": "保存更新相关的信息"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "buri9d48qwo0",
+                                                                            "created": 1560317128107,
+                                                                            "text": "enqueueUpdate(currentFiberRootFiber, update)",
+                                                                            "note": "将更新加到该节点的Fiber内的队列"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "burids4erso0",
+                                                                            "created": 1560317474225,
+                                                                            "text": "scheduleWork(current, expirationTime)\n开始任务调度"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "burhjz6zv3c0",
+                            "created": 1560315138694,
+                            "text": "hydrate"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "burijr0qeug0",
+                            "created": 1560317942011,
+                            "text": "通用数据结构"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "burijt2ascw0",
+                                    "created": 1560317946460,
+                                    "text": "FiberRoot"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "burijuvf0940",
+                                            "created": 1560317950397,
+                                            "text": "containerInfo"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "burijxh9bvk0",
+                                                    "created": 1560317956071,
+                                                    "text": "挂载的容器的DOM对象"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "burikkj18ps0",
+                                            "created": 1560318006245,
+                                            "text": "current"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "buriklnmuc00",
+                                                    "created": 1560318008700,
+                                                    "text": "Root节点对应的Fiber对象"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },

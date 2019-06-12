@@ -510,7 +510,7 @@ function legacyRenderSubtreeIntoContainer(
   parentComponent: ?React$Component<any, any>,
   children: ReactNodeList,
   container: DOMContainer,
-  forceHydrate: boolean,
+  forceHydrate: boolean, // 是否复用现有的dom节点,通常用于服务端渲染(hydrate方法调用时必传true)
   callback: ?Function,
 ) {
   // TODO: Ensure all entry points contain this check
@@ -528,7 +528,7 @@ function legacyRenderSubtreeIntoContainer(
   let root: Root = (container._reactRootContainer: any);
   if (!root) {
     // Initial mount
-    root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
+    root = container._reactRootContainer = legacyCreateRootFromDOMContainer(// 第一次 创建容器
       container,
       forceHydrate,
     );
@@ -540,7 +540,7 @@ function legacyRenderSubtreeIntoContainer(
       };
     }
     // Initial mount should not be batched.
-    DOMRenderer.unbatchedUpdates(() => {
+    DOMRenderer.unbatchedUpdates(() => { // 第一次渲染时,该回调直接执行
       if (parentComponent != null) {
         root.legacy_renderSubtreeIntoContainer(
           parentComponent,
