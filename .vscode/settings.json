@@ -12,5 +12,6 @@
     },
     "todo-tree.tags": [
         "QQQ"
-    ]
+    ],
+    "javascript.validate.enable": false
 }

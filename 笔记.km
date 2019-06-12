@@ -10,7 +10,8 @@
                 "data": {
                     "id": "bud3x0dovps0",
                     "created": 1558854825078,
-                    "text": "React"
+                    "text": "React",
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -606,6 +607,14 @@
                         ]
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "burhf242pkw0",
+                    "created": 1560314753227,
+                    "text": "ReactDom"
+                },
+                "children": []
             }
         ]
     },

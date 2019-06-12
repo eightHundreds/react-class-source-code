@@ -8,5 +8,15 @@
 				"label": "React.createElement"
 			}
 		]
+	},
+	{
+		"path": "$ROOTPATH$/react/packages/react-dom/src/client/ReactDOM.js",
+		"bookmarks": [
+			{
+				"line": 637,
+				"column": 9,
+				"label": "render"
+			}
+		]
 	}
 ]
