@@ -12,7 +12,7 @@
                     "id": "bud3x0dovps0",
                     "created": 1558854825078,
                     "text": "React",
-                    "expandState": "collapse"
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -822,6 +822,246 @@
                                                     "text": "Root节点对应的Fiber对象"
                                                 },
                                                 "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "but792eqzg00",
+                                    "created": 1560489192502,
+                                    "text": "Fiber"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "but79417kzc0",
+                                            "created": 1560489196037,
+                                            "text": "每个ReactElement对应一个 "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "but7pvsit9s0",
+                                            "created": 1560490510288,
+                                            "text": "记录节点状态(state,props)"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "but7q1jlbrk0",
+                                            "created": 1560490522809,
+                                            "text": "串联整个应用"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "but7qajqmw00",
+                                                    "created": 1560490542409,
+                                                    "text": "children"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7qbu9jq80",
+                                                    "created": 1560490545222,
+                                                    "text": "sibling"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7qndr1bk0",
+                                                    "created": 1560490570345,
+                                                    "text": "return",
+                                                    "note": "父节点"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "but7r6nseqw0",
+                                            "created": 1560490612311,
+                                            "text": "其他属性",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "but7r8xt43s0",
+                                                    "created": 1560490617270,
+                                                    "text": "tag"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but7rfgdjnc0",
+                                                            "created": 1560490631453,
+                                                            "text": "记录组件类型\n区分class components,func components,以及其他React 提供的components"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7sulq8i00",
+                                                    "created": 1560490742793,
+                                                    "text": "elementType"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but7sz3kl7s0",
+                                                            "created": 1560490752579,
+                                                            "text": "createReactElement传入的type"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7xf5pips0",
+                                                    "created": 1560491100993,
+                                                    "text": "type"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but7xgkvvsw0",
+                                                            "created": 1560491104088,
+                                                            "text": "异步组件resolve只会返回的内容"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7xs8k3u00",
+                                                    "created": 1560491129464,
+                                                    "text": "stateNode"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but7xu62hrs0",
+                                                            "created": 1560491133667,
+                                                            "text": "组件实例\nfunc component 没有实例"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7xzxbsl40",
+                                                    "created": 1560491146199,
+                                                    "text": "pendingProps"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but7y46enmo0",
+                                                            "created": 1560491155455,
+                                                            "text": "更新后产生的新的props"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7y92mj9k0",
+                                                    "created": 1560491166110,
+                                                    "text": "memoizedProps"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but7yg2eodc0",
+                                                            "created": 1560491181335,
+                                                            "text": "老的props"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7yi6zy5k0",
+                                                    "created": 1560491185966,
+                                                    "text": "updateQueue"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but7yk60sg00",
+                                                            "created": 1560491190260,
+                                                            "text": "当前组件产生的更新都推到该队列"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7yxmko3c0",
+                                                    "created": 1560491219559,
+                                                    "text": "memoizedState"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but7z1g97k80",
+                                                            "created": 1560491227885,
+                                                            "text": "上次渲染的state"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but7zerv1280",
+                                                    "created": 1560491256884,
+                                                    "text": "mode"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but7zfycit40",
+                                                            "created": 1560491259453,
+                                                            "text": ""
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "but81y7do080",
+                                                    "created": 1560491455910,
+                                                    "text": "alernate"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "but820m3pdc0",
+                                                            "created": 1560491461154,
+                                                            "text": "更新时会创建新的Fiber(workinProgress)\n老的Fiber.alernate指向workInProgress\nworkInProgress指向老的Fiber",
+                                                            "note": "减少创建对象"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
                                             }
                                         ]
                                     }
