@@ -12,7 +12,7 @@
                     "id": "bud3x0dovps0",
                     "created": 1558854825078,
                     "text": "React",
-                    "expandState": "expand"
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -781,7 +781,8 @@
                         "data": {
                             "id": "burijr0qeug0",
                             "created": 1560317942011,
-                            "text": "通用数据结构"
+                            "text": "通用数据结构",
+                            "expandState": "expand"
                         },
                         "children": [
                             {
@@ -831,7 +832,8 @@
                                 "data": {
                                     "id": "but792eqzg00",
                                     "created": 1560489192502,
-                                    "text": "Fiber"
+                                    "text": "Fiber",
+                                    "expandState": "expand"
                                 },
                                 "children": [
                                     {
@@ -1008,6 +1010,14 @@
                                                             "text": "当前组件产生的更新都推到该队列"
                                                         },
                                                         "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "buzecr1l0u80",
+                                                            "created": 1561118588727,
+                                                            "text": "单向列表结构"
+                                                        },
+                                                        "children": []
                                                     }
                                                 ]
                                             },
@@ -1058,6 +1068,593 @@
                                                             "created": 1560491461154,
                                                             "text": "更新时会创建新的Fiber(workinProgress)\n老的Fiber.alernate指向workInProgress\nworkInProgress指向老的Fiber",
                                                             "note": "减少创建对象"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "buzegvoz10o0",
+                                                                    "created": 1561118912305,
+                                                                    "text": "在更新开始时,alernate被认为是workInProgress"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buze70gc80o0",
+                                                    "created": 1561118139026,
+                                                    "text": "expirationTime"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buze83vui6o0",
+                                                            "created": 1561118224858,
+                                                            "text": "任务在未来的哪个时间点应该被完成"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buze7elhfkw0",
+                                                    "created": 1561118169812,
+                                                    "text": "childExpirationTime"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "buze99oibhk0",
+                                    "created": 1561118315839,
+                                    "text": "Update",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "buzeai2l2xc0",
+                                            "created": 1561118412468,
+                                            "text": "记录组件状态的改变"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "buzeam9s6s00",
+                                            "created": 1561118421611,
+                                            "text": "存放于UpdateQueue中"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "buzeaqkzirs0",
+                                            "created": 1561118430995,
+                                            "text": "允许多个Update存在(一个事件多次setState)"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "buzed8ksmxs0",
+                                            "created": 1561118626894,
+                                            "text": "属性"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "buzedbusv880",
+                                                    "created": 1561118634030,
+                                                    "text": "  expirationTime: ExpirationTime,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbusz480",
+                                                            "created": 1561118634030,
+                                                            "text": "// 更新的过期时间"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzedbutuds0",
+                                                    "created": 1561118634031,
+                                                    "text": "  tag: 0 | 1 | 2 | 3,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbutyr40",
+                                                            "created": 1561118634031,
+                                                            "text": "  // export const UpdateState = 0;"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbutvz40",
+                                                            "created": 1561118634031,
+                                                            "text": "  // export const ReplaceState = 1;"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbutgyw0",
+                                                            "created": 1561118634031,
+                                                            "text": "  // export const ForceUpdate = 2;"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbutx680",
+                                                            "created": 1561118634031,
+                                                            "text": "  // export const CaptureUpdate = 3;"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbutrps0",
+                                                            "created": 1561118634031,
+                                                            "text": "  // 指定更新的类型，值为以上几种"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzedbuuhgg0",
+                                                    "created": 1561118634032,
+                                                    "text": "  payload: any,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbutgyg0",
+                                                            "created": 1561118634031,
+                                                            "text": "  // 更新内容，比如`setState`接收的第一个参数"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzedbuugps0",
+                                                    "created": 1561118634032,
+                                                    "text": "  callback: (() => mixed) | null,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbuujdc0",
+                                                            "created": 1561118634032,
+                                                            "text": "  // 对应的回调，`setState`，`render`都有"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzedbuujrk0",
+                                                    "created": 1561118634032,
+                                                    "text": "  next: Update<State> | null,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbuuba80",
+                                                            "created": 1561118634032,
+                                                            "text": "  // 指向下一个更新"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzedbuuic00",
+                                                    "created": 1561118634032,
+                                                    "text": "  nextEffect: Update<State> | null,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzedbuu0e00",
+                                                            "created": 1561118634032,
+                                                            "text": "  // 指向下一个`side effect`"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "buzedxj1r3c0",
+                                            "created": 1561118681209,
+                                            "text": "UpdateQueue"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "buzee3277ow0",
+                                                    "created": 1561118693250,
+                                                    "text": "  baseState: State,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzee327bw00",
+                                                            "created": 1561118693250,
+                                                            "text": " // 每次操作完更新之后的`state`"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzee327y4g0",
+                                                    "created": 1561118693251,
+                                                    "text": "  firstUpdate: Update<State> | null,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzee3277ls0",
+                                                            "created": 1561118693250,
+                                                            "text": "  // 队列中的第一个`Update`"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzee327nw00",
+                                                    "created": 1561118693251,
+                                                    "text": "  lastUpdate: Update<State> | null,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzee327i5c0",
+                                                            "created": 1561118693251,
+                                                            "text": "  // 队列中的最后一个`Update`"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzee328k2w0",
+                                                    "created": 1561118693252,
+                                                    "text": "  firstCapturedUpdate: Update<State> | null,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzee327rp40",
+                                                            "created": 1561118693251,
+                                                            "text": "  // 第一个捕获类型的`Update`"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzee328lgw0",
+                                                    "created": 1561118693252,
+                                                    "text": "  lastCapturedUpdate: Update<State> | null,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzee328c0g0",
+                                                            "created": 1561118693252,
+                                                            "text": "  // 最后一个捕获类型的`Update`"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzee328hmo0",
+                                                    "created": 1561118693252,
+                                                    "text": "  firstEffect: Update<State> | null,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzee328m0g0",
+                                                            "created": 1561118693252,
+                                                            "text": "  // 第一个`side effect`"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzee3284w00",
+                                                    "created": 1561118693252,
+                                                    "text": "  lastEffect: Update<State> | null,",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "buzee328jbk0",
+                                                            "created": 1561118693252,
+                                                            "text": "  // 最后一个`side effect`"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzee328ljc0",
+                                                    "created": 1561118693252,
+                                                    "text": "  // 第一个和最后一个捕获产生的`side effect`"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzee32957s0",
+                                                    "created": 1561118693253,
+                                                    "text": "  firstCapturedEffect: Update<State> | null,"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "buzee3298480",
+                                                    "created": 1561118693253,
+                                                    "text": "  lastCapturedEffect: Update<State> | null,"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "buzxao52iko0",
+                    "created": 1561172026768,
+                    "text": "scheduler"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "buzxb2u9a4o0",
+                            "created": 1561172058766,
+                            "text": "expiretime"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "buzx73z889s0",
+                                    "created": 1561171747786,
+                                    "text": "公式"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "buzx78ga0g80",
+                                            "created": 1561171757524,
+                                            "text": "((((currentTime - 2 + 5000 / 10) / 25) | 0) + 1) * 25"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "buzx79f0zog0",
+                                    "created": 1561171759626,
+                                    "text": "作用"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "buzx7ahfpkw0",
+                                            "created": 1561171761948,
+                                            "text": "对数字取整",
+                                            "note": "例如\n((((currentTime - 2 + 5000 / 10) / 25) | 0) + 1) * 25\n当currentTime范围在10002~10025\n返回10525\n"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "buzx9ggq5fs0",
+                                            "created": 1561171931694,
+                                            "text": "保证短时间内的setState任务获得相同的expireTime\n也就意味着相同的优先级"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "buzxbpi0wyw0",
+                                    "created": 1561172108092,
+                                    "text": "种类"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "buzxbv1t2540",
+                                            "created": 1561172120172,
+                                            "text": "Sync模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "buzxbx5vagg0",
+                                                    "created": 1561172124771,
+                                                    "text": "需要立即执行"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "buzxc2g8t5k0",
+                                            "created": 1561172136282,
+                                            "text": "异步模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "buzxc3pvk6o0",
+                                                    "created": 1561172139042,
+                                                    "text": "允许被中断"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "buzxcfb1bdk0",
+                                            "created": 1561172164266,
+                                            "text": "指定context"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "bv0dmaylnn40",
+                            "created": 1561218076207,
+                            "text": "scheduleWork(fiber,expireTime)",
+                            "note": "setState,forceUpdate 最后都会调用的方法\nscheduleRootUpdate也会调用它"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "bv0t5vzdq680",
+                                    "created": 1561261927534,
+                                    "text": "scheduleWorkToRoot"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "bv0t5xt5uf40",
+                                            "created": 1561261931512,
+                                            "text": "找到根节点的Fiber,即FiberRoot"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bv0t647idlc0",
+                                            "created": 1561261945440,
+                                            "text": "把当前节点到FiberRoot链上的Fiber的expirationTime和childrenExpirationTime更新",
+                                            "note": "expirationTime代表任务在什么时候完成\n因为更新时到FiberRoot的链上的Fiber肯定都要更新,所以他的expirationTime都要更新"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "bv0vasnw8pc0",
+                                    "created": 1561267954350,
+                                    "text": "requestWork",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "bv0vb2vm7gg0",
+                                            "created": 1561267976585,
+                                            "text": "addRootToSchedule 将FiberRoot添加到调度链表中"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "bv0vc7ezvxc0",
+                                            "created": 1561268064828,
+                                            "text": "是否是batchUpdates"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "bv0vcb1pszk0",
+                                                    "created": 1561268072732,
+                                                    "text": "是"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "bv0vljaeuvs0",
+                                                            "created": 1561268795949,
+                                                            "text": "return",
+                                                            "note": "比如batchedUpdates方法\n\n先设置isBatchingUpdates,这导致requestWork时候不会理解更新,\n在完成回调后才执行更新\n\n类似的,onClick也是batchUpdate,所以如果多次this.setState是不会立即更新,而是onClick全执行完才可能(注意异步模式)更新\n```\nfunction batchedUpdates<A, R>(fn: (a: A) => R, a: A): R {\n  const previousIsBatchingUpdates = isBatchingUpdates;\n  isBatchingUpdates = true;\n  try {\n    return fn(a);\n  } finally {\n    isBatchingUpdates = previousIsBatchingUpdates;\n    if (!isBatchingUpdates && !isRendering) {\n      performSyncWork();\n    }\n  }\n}\n```"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "bv0vcbq0qe00",
+                                                    "created": 1561268074201,
+                                                    "text": "否",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "bv0vbfllbi80",
+                                                            "created": 1561268004277,
+                                                            "text": "根据expirationTime决定使用performSyncWork或者scheduleCallbackWithExpirationTime"
                                                         },
                                                         "children": []
                                                     }

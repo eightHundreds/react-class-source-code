@@ -214,13 +214,15 @@ function appendUpdateToQueue<State>(
 }
 
 export function enqueueUpdate<State>(fiber: Fiber, update: Update<State>) {
+  // 1. 保证当前fiber,workInProgress(如果存在的话)的fiber都有updateQueue
+  // 2. 向当前fiber的updateQueue塞入update, 如果workInProgress存在的话也塞入相同的update
   // Update queues are created lazily.
   const alternate = fiber.alternate;
-  let queue1;
-  let queue2;
+  let queue1; // 当前fiber的queue
+  let queue2; // workInProgress的queue
   if (alternate === null) {
     // There's only one fiber.
-    queue1 = fiber.updateQueue;
+    queue1 = fiber.updateQueue; // 如果fiber updateQueue为空,初始化它
     queue2 = null;
     if (queue1 === null) {
       queue1 = fiber.updateQueue = createUpdateQueue(fiber.memoizedState);
@@ -252,7 +254,7 @@ export function enqueueUpdate<State>(fiber: Fiber, update: Update<State>) {
   if (queue2 === null || queue1 === queue2) {
     // There's only a single queue.
     appendUpdateToQueue(queue1, update);
-  } else {
+  } else { // 
     // There are two queues. We need to append the update to both queues,
     // while accounting for the persistent structure of the list — we don't
     // want the same update to be added multiple times.

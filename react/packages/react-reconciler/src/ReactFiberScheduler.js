@@ -242,7 +242,7 @@ let expirationContext: ExpirationTime = NoWork;
 let isWorking: boolean = false;
 
 // The next work in progress fiber that we're currently working on.
-let nextUnitOfWork: Fiber | null = null;
+let nextUnitOfWork: Fiber | null = null; // 当执行异步任务时,任务未完成,且时间片用完,用该变量记录下一个要遍历的Fiber节点
 let nextRoot: FiberRoot | null = null;
 // The time at which we're currently rendering work.
 let nextRenderExpirationTime: ExpirationTime = NoWork;
@@ -353,10 +353,10 @@ if (__DEV__ && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
 }
 
 function resetStack() {
-  if (nextUnitOfWork !== null) {
+  if (nextUnitOfWork !== null) { // 找到上一个异步任务工作到哪个节点
     let interruptedWork = nextUnitOfWork.return;
     while (interruptedWork !== null) {
-      unwindInterruptedWork(interruptedWork);
+      unwindInterruptedWork(interruptedWork); // 因为现在高优先级任务进来打断,所以向上遍历,将相关的fiber工作回滚
       interruptedWork = interruptedWork.return;
     }
   }
@@ -365,7 +365,7 @@ function resetStack() {
     ReactStrictModeWarnings.discardPendingWarnings();
     checkThatStackIsEmpty();
   }
-
+  // 重置变量,准备新的任务
   nextRoot = null;
   nextRenderExpirationTime = NoWork;
   nextLatestAbsoluteTimeoutMs = -1;
@@ -1495,9 +1495,9 @@ function computeUniqueAsyncExpiration(): ExpirationTime {
 
 function computeExpirationForFiber(currentTime: ExpirationTime, fiber: Fiber) {
   let expirationTime;
-  if (expirationContext !== NoWork) {
+  if (expirationContext !== NoWork) { // expirationContext可以被其他方法设置 ,比如 syncUpdates ,用于强制改变expirationTime
     // An explicit expiration context was set;
-    expirationTime = expirationContext;
+    expirationTime = expirationContext; // 赋值为1,优先级超高 或者赋值为int最大值,优先级超低
   } else if (isWorking) {
     if (isCommitting) {
       // Updates that occur during the commit phase should have sync priority
@@ -1615,7 +1615,7 @@ function retrySuspendedRoot(
     requestWork(root, rootExpirationTime);
   }
 }
-
+// 找到节点的根的FiberRoot
 function scheduleWorkToRoot(fiber: Fiber, expirationTime): FiberRoot | null {
   recordScheduleUpdate();
 
@@ -1629,11 +1629,15 @@ function scheduleWorkToRoot(fiber: Fiber, expirationTime): FiberRoot | null {
   // Update the source fiber's expiration time
   if (
     fiber.expirationTime === NoWork ||
+    // 当fiber已经有更新但未完成(如果完成更新了,fiber.expirationTime是会被清除的)
+    // 且大于传入的expirationTime,说明fiber.expirationTime的优先级低与当前的expirationTime
+    // expirationTime代表任务在未来的哪个时间点应该被完成
+    // 所以在向上寻找的过程中,遍历过的节点的expirationTime都要更新
     fiber.expirationTime > expirationTime
   ) {
     fiber.expirationTime = expirationTime;
   }
-  let alternate = fiber.alternate;
+  let alternate = fiber.alternate; // alternate fiber的拷贝也要对应地更新
   if (
     alternate !== null &&
     (alternate.expirationTime === NoWork ||
@@ -1649,7 +1653,7 @@ function scheduleWorkToRoot(fiber: Fiber, expirationTime): FiberRoot | null {
   } else {
     while (node !== null) {
       alternate = node.alternate;
-      if (
+      if ( // 父节点的childExpirationTime更新
         node.childExpirationTime === NoWork ||
         node.childExpirationTime > expirationTime
       ) {
@@ -1725,14 +1729,15 @@ function scheduleWork(fiber: Fiber, expirationTime: ExpirationTime) {
   if (root === null) {
     return;
   }
-
+  // 上一个任务是异步任务（优先级很低，超时时间是 502ms），并且在上一个时间片（初始是 33ms）任务没有执行完
+  // 且当前任务的优先级更高(expirationTime<nextRenderExpirationTime)
   if (
     !isWorking &&
     nextRenderExpirationTime !== NoWork &&
     expirationTime < nextRenderExpirationTime
   ) {
     // This is an interruption. (Used for performance tracking.)
-    interruptedBy = fiber;
+    interruptedBy = fiber; // 仅仅记录任务被谁打断
     resetStack();
   }
   markPendingPriorityLevel(root, expirationTime);
@@ -1745,7 +1750,7 @@ function scheduleWork(fiber: Fiber, expirationTime: ExpirationTime) {
     nextRoot !== root
   ) {
     const rootExpirationTime = root.expirationTime;
-    requestWork(root, rootExpirationTime);
+    requestWork(root, rootExpirationTime); // 如果现在没有任务的话,开始一个任务
   }
   if (nestedUpdateCount > NESTED_UPDATE_LIMIT) {
     // Reset this back to zero so subsequent updates don't throw.
@@ -1992,11 +1997,16 @@ function requestWork(root: FiberRoot, expirationTime: ExpirationTime) {
     scheduleCallbackWithExpirationTime(root, expirationTime);
   }
 }
-
+/**
+ * 将root加入到调度链表,同时更新root的expirationTime
+ * @param {*} root 
+ * @param {*} expirationTime 
+ */
 function addRootToSchedule(root: FiberRoot, expirationTime: ExpirationTime) {
   // Add the root to the schedule.
   // Check if this root is already part of the schedule.
   if (root.nextScheduledRoot === null) {
+    // 如果该root之前没在调度链表中, 将root加入到调度链表中
     // This root is not already scheduled. Add it.
     root.expirationTime = expirationTime;
     if (lastScheduledRoot === null) {
@@ -2012,7 +2022,7 @@ function addRootToSchedule(root: FiberRoot, expirationTime: ExpirationTime) {
     const remainingExpirationTime = root.expirationTime;
     if (
       remainingExpirationTime === NoWork ||
-      expirationTime < remainingExpirationTime
+      expirationTime < remainingExpirationTime // 如果参数的expirationTime优先级比目前root的高,则更新root的expirationTime
     ) {
       // Update the priority.
       root.expirationTime = expirationTime;
