@@ -38,5 +38,35 @@
 				"label": "updateContainer"
 			}
 		]
+	},
+	{
+		"path": "$ROOTPATH$/react/packages/react-reconciler/src/ReactFiberScheduler.js",
+		"bookmarks": [
+			{
+				"line": 2236,
+				"column": 27,
+				"label": "performWorkOnRoot"
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/react/packages/scheduler/src/Scheduler.js",
+		"bookmarks": [
+			{
+				"line": 561,
+				"column": 34,
+				"label": "idleTick"
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/react/packages/react-reconciler/src/ReactFiberClassComponent.js",
+		"bookmarks": [
+			{
+				"line": 187,
+				"column": 44,
+				"label": "enqueueSetState"
+			}
+		]
 	}
 ]

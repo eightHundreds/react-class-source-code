@@ -294,7 +294,7 @@ if (__DEV__ && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
       );
       return;
     }
-    assignFiberPropertiesInDEV(
+    assignFiberPropertiesInDEV()
       failedUnitOfWork,
       stashedWorkInProgressProperties,
     );
@@ -1658,14 +1658,14 @@ function scheduleWorkToRoot(fiber: Fiber, expirationTime): FiberRoot | null {
         node.childExpirationTime > expirationTime
       ) {
         node.childExpirationTime = expirationTime;
-        if (
+        if ( // workInProcess更新
           alternate !== null &&
           (alternate.childExpirationTime === NoWork ||
             alternate.childExpirationTime > expirationTime)
         ) {
           alternate.childExpirationTime = expirationTime;
         }
-      } else if (
+      } else if ( // workInProcess更新
         alternate !== null &&
         (alternate.childExpirationTime === NoWork ||
           alternate.childExpirationTime > expirationTime)
@@ -1676,7 +1676,7 @@ function scheduleWorkToRoot(fiber: Fiber, expirationTime): FiberRoot | null {
         root = node.stateNode;
         break;
       }
-      node = node.return;
+      node = node.return; // 向上继续执行
     }
   }
 
@@ -1752,7 +1752,7 @@ function scheduleWork(fiber: Fiber, expirationTime: ExpirationTime) {
     const rootExpirationTime = root.expirationTime;
     requestWork(root, rootExpirationTime); // 如果现在没有任务的话,开始一个任务
   }
-  if (nestedUpdateCount > NESTED_UPDATE_LIMIT) {
+  if (nestedUpdateCount > NESTED_UPDATE_LIMIT) { //检测无限循环更新
     // Reset this back to zero so subsequent updates don't throw.
     nestedUpdateCount = 0;
     invariant(
@@ -1862,7 +1862,7 @@ function scheduleCallbackWithExpirationTime(
   const currentMs = now() - originalStartTimeMs;
   const expirationTimeMs = expirationTimeToMs(expirationTime);
   const timeout = expirationTimeMs - currentMs;
-  callbackID = scheduleDeferredCallback(performAsyncWork, {timeout});
+  callbackID = scheduleDeferredCallback(performAsyncWork, {timeout}); // unstable_scheduleCallback
 }
 
 // For every call to renderRoot, one of onFatal, onComplete, onSuspend, and
@@ -2037,9 +2037,9 @@ function findHighestPriorityRoot() {
     let previousScheduledRoot = lastScheduledRoot;
     let root = firstScheduledRoot;
     while (root !== null) {
-      const remainingExpirationTime = root.expirationTime;
+      const remainingirationTime = root.expirationTime;
       if (remainingExpirationTime === NoWork) {
-        // This root no longer has work. Remove it from the scheduler.
+        // This root no longer has work. Remove it from the scheduler. 改root没有工作了,把它从调度链表中移除
 
         // TODO: This check is redudant, but Flow is confused by the branch
         // below where we set lastScheduledRoot to null, even though we break

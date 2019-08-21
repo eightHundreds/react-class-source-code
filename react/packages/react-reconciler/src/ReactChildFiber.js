@@ -1122,7 +1122,7 @@ function ChildReconciler(shouldTrackSideEffects) {
             ? element.type === REACT_FRAGMENT_TYPE
             : child.elementType === element.type
         ) {
-          deleteRemainingChildren(returnFiber, child.sibling);
+          deleteRemainingChildren(returnFiber, child.sibling);// 因为是reconcileSingleElement,所以代表新的returnFiber下面只有一个节点,这样就应该删掉老的child.sibling
           const existing = useFiber(
             child,
             element.type === REACT_FRAGMENT_TYPE
@@ -1144,7 +1144,7 @@ function ChildReconciler(shouldTrackSideEffects) {
       } else {
         deleteChild(returnFiber, child);
       }
-      child = child.sibling;
+      child = child.sibling; // 尝试从兄弟节点找可复用Fiber
     }
 
     if (element.type === REACT_FRAGMENT_TYPE) {
@@ -1185,7 +1185,7 @@ function ChildReconciler(shouldTrackSideEffects) {
           child.stateNode.containerInfo === portal.containerInfo &&
           child.stateNode.implementation === portal.implementation
         ) {
-          deleteRemainingChildren(returnFiber, child.sibling);
+          deleteRemainingChildren(returnFiber, child.sibling); 
           const existing = useFiber(
             child,
             portal.children || [],
@@ -1217,8 +1217,8 @@ function ChildReconciler(shouldTrackSideEffects) {
   // children and the parent.
   function reconcileChildFibers(
     returnFiber: Fiber,
-    currentFirstChild: Fiber | null,
-    newChild: any,
+    currentFirstChild: Fiber | null, // 子节点的Fiber
+    newChild: any, // 子节点的ReactElement
     expirationTime: ExpirationTime,
   ): Fiber | null {
     // This function is not recursive.

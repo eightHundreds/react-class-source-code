@@ -76,16 +76,16 @@ var deadlineObject = {
   timeRemaining,
   didTimeout: false,
 };
-
+// 确保开始执行callback链
 function ensureHostCallbackIsScheduled() {
-  if (isExecutingCallback) {
+  if (isExecutingCallback) { // 是否正在调用callback
     // Don't schedule work yet; wait until the next time we yield.
     return;
   }
   // Schedule the host callback using the earliest expiration in the list.
   var expirationTime = firstCallbackNode.expirationTime;
   if (!isHostCallbackScheduled) {
-    isHostCallbackScheduled = true;
+    isHostCallbackScheduled = true; // 是否开始调度
   } else {
     // Cancel the existing host callback.
     cancelHostCallback();
@@ -353,14 +353,14 @@ function unstable_scheduleCallback(callback, deprecated_options) {
       node = node.next;
     } while (node !== firstCallbackNode);
 
-    if (next === null) {
+    if (next === null) { // newNode比链表中的节点的优先级都小
       // No callback with a later expiration was found, which means the new
       // callback has the latest expiration in the list.
       next = firstCallbackNode;
-    } else if (next === firstCallbackNode) {
+    } else if (next === firstCallbackNode) {// newNode优先级最高
       // The new callback has the earliest expiration in the entire list.
       firstCallbackNode = newNode;
-      ensureHostCallbackIsScheduled();
+      ensureHostCallbackIsScheduled(); // 当firstCallbackNode变动后才需要调用
     }
 
     var previous = next.previous;
@@ -439,7 +439,7 @@ var getCurrentTime;
 var ANIMATION_FRAME_TIMEOUT = 100;
 var rAFID;
 var rAFTimeoutID;
-var requestAnimationFrameWithTimeout = function(callback) {
+var requestAnimationFrameWithTimeout = function(callback) { // 调用window.requestAnimationFrame 带有超时时间
   // schedule rAF and also a setTimeout
   rAFID = localRequestAnimationFrame(function(timestamp) {
     // cancel the setTimeout
@@ -574,14 +574,14 @@ if (typeof window !== 'undefined' && window._schedMock) {
     var currentTime = getCurrentTime();
 
     var didTimeout = false;
-    if (frameDeadline - currentTime <= 0) {
+    if (frameDeadline - currentTime <= 0) { // 帧有个超时时间,callback也有   目前callback的timeout是来着react,由一个魔法常量决定
       // There's no time left in this idle period. Check if the callback has
       // a timeout and whether it's been exceeded.
-      if (prevTimeoutTime !== -1 && prevTimeoutTime <= currentTime) {
+      if (prevTimeoutTime !== -1 && prevTimeoutTime <= currentTime) {// 如果帧与callback都超时
         // Exceeded the timeout. Invoke the callback even though there's no
         // time left.
         didTimeout = true;
-      } else {
+      } else {// 帧过期,任务没有过期,则安排该任务在下一个帧执行
         // No timeout.
         if (!isAnimationFrameScheduled) {
           // Schedule another animation callback so we retry later.
@@ -607,8 +607,8 @@ if (typeof window !== 'undefined' && window._schedMock) {
   // Assumes that we have addEventListener in this environment. Might need
   // something better for old IE.
   window.addEventListener('message', idleTick, false);
-
-  var animationTick = function(rafTime) {
+  // rafTime:animationTick被调用的时间
+  var animationTick = function(rafTime) { // 其实这里已经是一个死循环调度,只要scheduledHostCallback还有工作则一直循环
     if (scheduledHostCallback !== null) {
       // Eagerly schedule the next animation callback at the beginning of the
       // frame. If the scheduler queue is not empty at the end of the frame, it
@@ -624,10 +624,10 @@ if (typeof window !== 'undefined' && window._schedMock) {
       isAnimationFrameScheduled = false;
       return;
     }
-
-    var nextFrameTime = rafTime - frameDeadline + activeFrameTime;
+    // activeFrameTime 一帧渲染的时间,默认是33ms
+    var nextFrameTime = rafTime - frameDeadline + activeFrameTime; 
     if (
-      nextFrameTime < activeFrameTime &&
+      nextFrameTime < activeFrameTime && 
       previousFrameTime < activeFrameTime
     ) {
       if (nextFrameTime < 8) {
@@ -642,20 +642,20 @@ if (typeof window !== 'undefined' && window._schedMock) {
       // running on 120hz display or 90hz VR display.
       // Take the max of the two in case one of them was an anomaly due to
       // missed frame deadlines.
-      activeFrameTime =
-        nextFrameTime < previousFrameTime ? previousFrameTime : nextFrameTime;
+      activeFrameTime = // Math.max(nextFrameTime,previousFrameTime)
+        nextFrameTime < previousFrameTime ? previousFrameTime : nextFrameTime;// 通过若干次执行,算出当前平台的刷新频率,并更新activeFrameTime
     } else {
       previousFrameTime = nextFrameTime;
     }
-    frameDeadline = rafTime + activeFrameTime;
+    frameDeadline = rafTime + activeFrameTime; // 该帧预期到期时间
     if (!isMessageEventScheduled) {
       isMessageEventScheduled = true;
-      window.postMessage(messageKey, '*');
+      window.postMessage(messageKey, '*'); // 使用postMessage发起事件,postMessage一定是在当前帧完成后才会执行
     }
   };
 
   requestHostCallback = function(callback, absoluteTimeout) {
-    scheduledHostCallback = callback;
+    scheduledHostCallback = callback; // 下一个调度要进行的工作
     timeoutTime = absoluteTimeout;
     if (isFlushingHostCallback || absoluteTimeout < 0) {
       // Don't wait for the next frame. Continue working ASAP, in a new event.

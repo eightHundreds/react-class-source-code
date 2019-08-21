@@ -1489,11 +1489,11 @@ function bailoutOnAlreadyFinishedWork(
 function beginWork(
   current: Fiber | null,
   workInProgress: Fiber,
-  renderExpirationTime: ExpirationTime,
+  renderExpirationTime: ExpirationTime, //FiberRoot的过期时间,FiberRoot不是Fiber类型
 ): Fiber | null {
   const updateExpirationTime = workInProgress.expirationTime;
 
-  if (current !== null) {
+  if (current !== null) {// 这个节点是不是第一次渲染
     const oldProps = current.memoizedProps;
     const newProps = workInProgress.pendingProps;
     if (
@@ -1501,7 +1501,7 @@ function beginWork(
       !hasLegacyContextChanged() &&
       (updateExpirationTime === NoWork ||
         updateExpirationTime > renderExpirationTime)
-    ) {
+    ) {// 假设一个根下面有4个节点,节点1触发了Sync更新,其他节点都是异步更新,此时根节点的expirationTime是Sync,在更新时,实际上那3个异步更新的节点是可以跳过的
       // This fiber does not have any pending work. Bailout without entering
       // the begin phase. There's still some bookkeeping we that needs to be done
       // in this optimized path, mostly pushing stuff onto the stack.

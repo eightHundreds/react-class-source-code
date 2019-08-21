@@ -4,7 +4,7 @@
             "id": "bud3wz0fuqg0",
             "created": 1558854822100,
             "text": "中心主题",
-            "note": "https://react.jokcy.me/"
+            "note": "https://react.jokcy.me/\n\n\nhttps://juejin.im/post/5a2276d5518825619a027f57"
         },
         "children": [
             {
@@ -12,7 +12,7 @@
                     "id": "bud3x0dovps0",
                     "created": 1558854825078,
                     "text": "React",
-                    "expandState": "collapse"
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -713,7 +713,7 @@
                                                             "id": "buri3zoqz7k0",
                                                             "created": 1560316707051,
                                                             "text": "expirationTime = computeExpirationForFiber(currentTime, current)",
-                                                            "note": "这次更新的 超时时间"
+                                                            "note": "这次更新的 超时时间\nexpirationTime越小优先级越高"
                                                         },
                                                         "children": []
                                                     },
@@ -782,7 +782,7 @@
                             "id": "burijr0qeug0",
                             "created": 1560317942011,
                             "text": "通用数据结构",
-                            "expandState": "expand"
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -1066,7 +1066,7 @@
                                                         "data": {
                                                             "id": "but820m3pdc0",
                                                             "created": 1560491461154,
-                                                            "text": "更新时会创建新的Fiber(workinProgress)\n老的Fiber.alernate指向workInProgress\nworkInProgress指向老的Fiber",
+                                                            "text": "更新时会创建新的Fiber(workinProgress)\n老的Fiber.alernate指向workInProgress\nworkInProgress指向老的Fiber\n当更新在workInProgress完成后,交换两个fiber",
                                                             "note": "减少创建对象"
                                                         },
                                                         "children": [
@@ -1074,7 +1074,11 @@
                                                                 "data": {
                                                                     "id": "buzegvoz10o0",
                                                                     "created": 1561118912305,
-                                                                    "text": "在更新开始时,alernate被认为是workInProgress"
+                                                                    "text": "在更新开始时,alernate被认为是workInProgress",
+                                                                    "layout_right_offset": {
+                                                                        "x": 35,
+                                                                        "y": -1
+                                                                    }
                                                                 },
                                                                 "children": []
                                                             }
@@ -1096,6 +1100,14 @@
                                                             "text": "任务在未来的哪个时间点应该被完成"
                                                         },
                                                         "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "bwa39mmyi3k0",
+                                                            "created": 1565860629798,
+                                                            "text": "当有值的时候说明该节点正在工作"
+                                                        },
+                                                        "children": []
                                                     }
                                                 ]
                                             },
@@ -1105,7 +1117,16 @@
                                                     "created": 1561118169812,
                                                     "text": "childExpirationTime"
                                                 },
-                                                "children": []
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "bwa5te0c09s0",
+                                                            "created": 1565867820519,
+                                                            "text": "子树中优先级最高的expirationTime"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
                                             }
                                         ]
                                     }
@@ -1116,7 +1137,7 @@
                                     "id": "buze99oibhk0",
                                     "created": 1561118315839,
                                     "text": "Update",
-                                    "expandState": "collapse"
+                                    "expandState": "expand"
                                 },
                                 "children": [
                                     {
@@ -1579,7 +1600,7 @@
                                 "data": {
                                     "id": "bv0t5vzdq680",
                                     "created": 1561261927534,
-                                    "text": "scheduleWorkToRoot"
+                                    "text": "scheduleWorkToRoot(fiber,expireTime)"
                                 },
                                 "children": [
                                     {
@@ -1636,7 +1657,7 @@
                                                             "id": "bv0vljaeuvs0",
                                                             "created": 1561268795949,
                                                             "text": "return",
-                                                            "note": "比如batchedUpdates方法\n\n先设置isBatchingUpdates,这导致requestWork时候不会理解更新,\n在完成回调后才执行更新\n\n类似的,onClick也是batchUpdate,所以如果多次this.setState是不会立即更新,而是onClick全执行完才可能(注意异步模式)更新\n```\nfunction batchedUpdates<A, R>(fn: (a: A) => R, a: A): R {\n  const previousIsBatchingUpdates = isBatchingUpdates;\n  isBatchingUpdates = true;\n  try {\n    return fn(a);\n  } finally {\n    isBatchingUpdates = previousIsBatchingUpdates;\n    if (!isBatchingUpdates && !isRendering) {\n      performSyncWork();\n    }\n  }\n}\n```"
+                                                            "note": "比如batchedUpdates方法\n\n先设置isBatchingUpdates,这导致requestWork时候不会立即更新,\n在完成回调后才执行更新\n\n类似的,onClick也是batchUpdate,所以如果多次this.setState是不会立即更新,而是onClick全执行完才可能(注意异步模式)更新\n```\nfunction batchedUpdates<A, R>(fn: (a: A) => R, a: A): R {\n  const previousIsBatchingUpdates = isBatchingUpdates;\n  isBatchingUpdates = true;\n  try {\n    return fn(a);\n  } finally {\n    isBatchingUpdates = previousIsBatchingUpdates;\n    if (!isBatchingUpdates && !isRendering) {\n      performSyncWork();\n    }\n  }\n}\n```\n"
                                                         },
                                                         "children": []
                                                     }
@@ -1663,6 +1684,68 @@
                                         ]
                                     }
                                 ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "bwaot71wd340",
+                            "created": 1565921406464,
+                            "text": "两阶段"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "bwaot8wlmow0",
+                                    "created": 1565921410497,
+                                    "text": "render"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bwaot9zbmwo0",
+                                    "created": 1565921412839,
+                                    "text": "commit"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "bwaoxr31or40",
+                                            "created": 1565921763526,
+                                            "text": "不可打断"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "bwaosk39vps0",
+                            "created": 1565921356481,
+                            "text": "全局变量",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "bwaosrcg6i80",
+                                    "created": 1565921372273,
+                                    "text": "isCommitting",
+                                    "note": "用来标志是否处于commit阶段"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "bwaosrlv39s0",
+                                    "created": 1565921372843,
+                                    "text": "isWorking",
+                                    "note": "是否在render阶段或者commit阶段"
+                                },
+                                "children": []
                             }
                         ]
                     }
